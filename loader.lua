@@ -1,17 +1,17 @@
 local Players = game:GetService("Players")
 local HttpService = game:GetService("HttpService")
+
 local placeId = game.PlaceId
-local url = scripts[placeId]
 
 local scripts = {
-    [75992362647444] = "https://raw.githubusercontent.com/AhmadSabbr/Games/refs/heads/main/TapSimulator.lua", -- Tap Simulator
-    [] = ""
+    [75992362647444] = "https://raw.githubusercontent.com/AhmadSabbr/Games/refs/heads/main/TapSimulator.lua"
 }
 
+local url = scripts[placeId]
 if not url then return end
 
 local source = game:HttpGet(url)
-local run = loadstring(source)
-if run then
-    run()
+local func = loadstring(source)
+if func then
+    func()
 end
